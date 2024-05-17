@@ -60,7 +60,6 @@ class DatasetGenerator:
             ]
         }
         """
-        return NotImplementedError
 
     def save_images(self, images, label, image_id_0):
         output_path = Path(self.output_dir) / label
