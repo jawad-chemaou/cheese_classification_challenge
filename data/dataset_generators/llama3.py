@@ -3,7 +3,7 @@ from tqdm import tqdm
 from .base import DatasetGenerator
 import transformers
 import torch
-
+import pickle
 
 class Llama3DatasetGenerator(DatasetGenerator):
     def __init__(
@@ -16,14 +16,6 @@ class Llama3DatasetGenerator(DatasetGenerator):
     ):
         super().__init__(generator, batch_size, output_dir)
         self.num_images_per_label = num_images_per_label
-        self.model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-        self.access_token = "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"
-        self.pipeline = transformers.pipeline(
-            "text-generation",
-            model=self.model_id,
-            model_kwargs={"torch_dtype": torch.bfloat16},
-            device_map="auto",
-        )
 
     def generate(self, labels_names):
         labels_prompts = self.create_prompts(labels_names)
@@ -46,13 +38,10 @@ class Llama3DatasetGenerator(DatasetGenerator):
                 
 
     def create_prompts(self, labels_names):
-        prompts = {}
-        for label in labels_names:
-            for i in range(self.num_images_per_label) :
-                # To change --> get from .txt file
-                # label_prompts = self.generate_prompts(label)
-                prompts[label] = [{"prompt": prompt, "num_images": 30} for prompt in label_prompts]
+        with open("/users/eleves-b/2022/jawad.chemaou/cheese_classification_challenge/example_dict.pkl", "rb") as file:
+            prompts = pickle.load(file)
         return prompts
+
         
 
     def save_images(self, images, label, image_id_0):

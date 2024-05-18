@@ -2,6 +2,14 @@ _target_: torchvision.transforms.Compose
 transforms:
   - _target_: torchvision.transforms.Resize
     size: [224, 224]
+  - _target_: torchvision.transforms.RandomRotation
+    degrees: 15
+  - _target_: torchvision.transforms.RandomHorizontalFlip
+  - _target_: torchvision.transforms.ColorJitter
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
   - _target_: torchvision.transforms.ToTensor
   - _target_: torchvision.transforms.Normalize
     mean: [0.485, 0.456, 0.406]
