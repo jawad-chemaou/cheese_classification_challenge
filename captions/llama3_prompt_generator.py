@@ -27,7 +27,6 @@ class Llama3PromptGenerator():
         messages = [
             {"role": "system", "content": "You are an image prompt generator which answers with detailed prompts to be directly used on a text-to-image model. You must only give the prompts as an answer, with a single entry space between prompts."},
             {"role": "user", "content": f"""
-
                 These are 25 captions for {label} cheese images:
                 {generate_caption(label)}
                 Do not emphasize on food.
@@ -68,7 +67,7 @@ class Llama3PromptGenerator():
         for label in labels_names:
             # ignore if string too small (meaning it's an incomplete prompt or a '\n')
             label_prompts = self.generate_prompts(label)
-            prompts[label] = [{"prompt": prompt, "num_images": 2} for prompt in label_prompts if len(prompt) > 10]
+            prompts[label] = [{"prompt": prompt, "num_images": 10} for prompt in label_prompts if len(prompt) > 10]
             print(prompts[label])
         return prompts
 

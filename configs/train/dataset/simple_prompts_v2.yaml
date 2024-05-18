@@ -2,7 +2,7 @@ defaults:
   - train_transform: simple
   - test_transform: simple
 
-name: simple_prompts
+name: simple_prompts_v2
 num_classes: 37
 batch_size: 128
 num_workers: 8

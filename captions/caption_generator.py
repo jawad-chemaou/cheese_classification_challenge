@@ -11,6 +11,7 @@ model = Blip2ForConditionalGeneration.from_pretrained(
 )  # doctest: +IGNORE_RESULT
 
 def generate_caption(label):
+    str = ""
     for i in range(0,25):
         if i < 10:
             image = Image.open(f"/users/eleves-b/2022/jawad.chemaou/cheese_classification_challenge/dataset/val/{label}/00000{i}.jpg")
@@ -23,4 +24,8 @@ def generate_caption(label):
         generated_ids = model.generate(**inputs)
         generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0].strip()
         
-        return generated_text
+        str += generated_text + "\n"
+    
+    return str
+
+print(generate_caption("CHEDDAR"))
