@@ -1,5 +1,5 @@
 defaults:
-  - image_generator: sdxl_lightning
+  - image_generator: dreambooth_lora
   - dataset_generator: llama3_prompts
 
 data_dir: ${root_dir}/dataset

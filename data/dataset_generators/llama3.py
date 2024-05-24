@@ -40,7 +40,7 @@ class Llama3DatasetGenerator(DatasetGenerator):
     def create_prompts(self, labels_names):
         with open("/users/eleves-b/2022/jawad.chemaou/cheese_classification_challenge/example_dict.pkl", "rb") as file:
             prompts = pickle.load(file)
-        return prompts
+        return {"BEAUFORT": prompts["BEAUFORT"]}
 
         
 
