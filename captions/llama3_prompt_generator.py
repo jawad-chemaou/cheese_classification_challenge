@@ -75,7 +75,7 @@ with open("/users/eleves-b/2022/jawad.chemaou/cheese_classification_challenge/li
         labels = f.readlines()
         labels = [label.strip() for label in labels]
 generator = Llama3PromptGenerator()
-prompts = generator.create_prompts(labels)
+prompts = generator.create_prompts("labels")
 
 with open("example_dict.pkl", "wb") as file:
     pickle.dump(prompts, file)
