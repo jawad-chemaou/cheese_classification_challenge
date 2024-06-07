@@ -1,6 +1,7 @@
 from pathlib import Path
 from tqdm import tqdm
 from .base import DatasetGenerator
+from captions.pecorino_dictionary_gpt4_prompts import get_prompts
 import transformers
 import torch
 import pickle
@@ -40,8 +41,11 @@ class Llama3DatasetGenerator(DatasetGenerator):
     def create_prompts(self, labels_names):
         with open("/users/eleves-b/2022/jawad.chemaou/cheese_classification_challenge/example_dict.pkl", "rb") as file:
             prompts = pickle.load(file)
-        return {"BEAUFORT": prompts["BEAUFORT"]}
-
+        return {"MOZZARELLA": prompts["MOZZARELLA"]}
+        
+        #return get_prompts()
+        
+        
         
 
     def save_images(self, images, label, image_id_0):

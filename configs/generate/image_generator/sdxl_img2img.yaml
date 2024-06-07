@@ -1,0 +1,2 @@
+_target_: generators.sdxl_img2img.SDXLImg2ImgGenerator
+use_cpu_offload: false
