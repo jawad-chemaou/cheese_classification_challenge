@@ -17,7 +17,7 @@ class SDXLLightiningGenerator:
         self,
         use_cpu_offload=False,
     ):
-        lora_model_id ="JawadC/lora-dreambooth"
+        lora_model_id ="JawadC/mozzarella"
         card = RepoCard.load(lora_model_id)
         base_model_id = card.data.to_dict()["base_model"]
         base = "stabilityai/stable-diffusion-xl-base-1.0"

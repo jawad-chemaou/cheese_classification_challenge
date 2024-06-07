@@ -1,0 +1,2 @@
+_target_: generators.IP-Adapter.ip-adapter-model-generator.SDXLIPAdapterGenerator
+use_cpu_offload: false

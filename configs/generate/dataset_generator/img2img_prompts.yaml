@@ -1,0 +1,6 @@
+_target_: data.dataset_generators.img2img.Img2ImgDatasetGenerator
+generator: ${image_generator}
+batch_size: ${batch_size}
+output_dir: ${data_dir}/train/img2img_prompts
+input_dir: ${data_dir}/val
+num_images_per_label: 7

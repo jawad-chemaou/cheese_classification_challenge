@@ -2,6 +2,7 @@ import torch
 import wandb
 import hydra
 from tqdm import tqdm
+from easy_ocr import CheeseClassifier
 
 
 @hydra.main(config_path="configs/train", config_name="config")
