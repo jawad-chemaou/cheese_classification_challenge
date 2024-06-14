@@ -43,7 +43,7 @@ def create_submission(cfg):
     print(f"Loading model from checkpoint: {cfg.checkpoint_path}")
     model.load_state_dict(checkpoint)
     class_names = sorted(os.listdir(cfg.dataset.train_path))
-
+    
     # Create submission.csv
     submission = pd.DataFrame(columns=["id", "label"])
 
