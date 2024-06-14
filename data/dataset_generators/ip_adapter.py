@@ -29,7 +29,7 @@ class IpAdapterGenerator(DatasetGenerator):
                 pbar.set_description(
                 f"Generating images for image: {label}/00000{i}.jpg"
                 )
-                prompt = f"A close-up photograph of finely grated Pecorino cheese on a wooden cutting board, with a partially sliced block of Pecorino beside it, showcasing the contrast between the solid block and the delicate shreds."
+                
                 if i < 10:
                     input_path = f"{self.input_dir}/{label}/00000{i}.jpg"
                 else:

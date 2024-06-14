@@ -1,6 +1,6 @@
 defaults:
   - model: dinov2
-  - dataset: ipadapter
+  - dataset: llama3
   - optim: adamw
   - loss_fn: cross_entropy
 
