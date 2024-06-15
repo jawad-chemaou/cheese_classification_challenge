@@ -1,9 +1,10 @@
 # Cheese Classification challenge
+**This read me has been modified to include instructions to reproduce our results, please check below.**
 This codebase allows you to jumpstart the INF473V challenge.
 The goal of this channel is to create a cheese classifier without any real training data.
 You will need to create your own training data from tools such as Stable Diffusion, SD-XL, etc...
 
-## Instalation
+## Installation
 
 Cloning the repo:
 ```
@@ -107,13 +108,15 @@ You can then generate a training dataset for this specific cheese with the follo
 python generate.py
 ```
 #### Generate images with IP-Adapter
+The content of generators/IP-Adapter was obtained by following the instructions from this github repo: https://github.com/tencent-ailab/IP-Adapter/tree/main
+Here again, the code is to be credited to its authors.
 
-### VRAM issues
-If you have vram issues either use smaller diffusion models (SD 1.5) or try CPU offloading (much slower). For example for sdxl lightning you can do
+In this sub-folder (generators/IP-Adapter), the file ip-adapter-model-generator.py was added: it can be retrieved in the zip file associated in Moodle.
 
-```
-python generate.py image_generator.use_cpu_offload=true
-```
+In order to generate images for the IP-Adapter model, the config used should be, in the configs/generate/config.yaml file:
+
+  - image_generator: sdxl_ipadapter
+  - dataset_generator: ipadapter
 
 ## Create submition
 To create a submition file for a single model, you can run 
@@ -131,5 +134,3 @@ python create_submition_two_models_with_ocr_max.py
 ```
 The configs/train directory was modified in order to accomodate for this. It must be noted that the ensambling + OCR takes place at the moment of the creation of the submission in our implementation.
 Make sure to specify the name of the checkpoint you want to score and to have the right model config
-
-## Bibliography
