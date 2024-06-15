@@ -1,5 +1,6 @@
 # Cheese Classification challenge
-**This read me has been modified to include instructions to reproduce our results, please check below.**
+#**This read me has been modified to include instructions to reproduce our results, please check below.**
+
 This codebase allows you to jumpstart the INF473V challenge.
 The goal of this channel is to create a cheese classifier without any real training data.
 You will need to create your own training data from tools such as Stable Diffusion, SD-XL, etc...
