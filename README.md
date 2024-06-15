@@ -84,19 +84,13 @@ To this cloned repo:
 
 ### Generate images
 
-
 You can generate datasets with the following command
 
 ```
 python generate.py
 ```
-
-If you want to create a new dataset generator method, write a method that inherits from `data.dataset_generators.base.DatasetGenerator` and create a new config file in `configs/generate/dataset_generator`.
-You can then run
-
-```
-python generate.py dataset_generator=your_new_generator
-```
+#### Generate images with Dreambooth LoRA
+#### Generate images with IP-Adapter
 
 ### VRAM issues
 If you have vram issues either use smaller diffusion models (SD 1.5) or try CPU offloading (much slower). For example for sdxl lightning you can do
@@ -106,11 +100,20 @@ python generate.py image_generator.use_cpu_offload=true
 ```
 
 ## Create submition
-To create a submition file, you can run 
+To create a submition file for a single model, you can run 
 ```
 python create_submition.py experiment_name="name_of_the_exp_you_want_to_score" model=config_of_the_exp
 ```
 
+To make use of ensambling + OCR, you can run
+```
+python create_submition_two_models_with_ocr_sum.py
+```
+or
+```
+python create_submition_two_models_with_ocr_max.py
+```
+The configs/train directory was modified in order to accomodate for this. It must be noted that the ensambling + OCR takes place at the moment of the creation of the submission in our implementation.
 Make sure to specify the name of the checkpoint you want to score and to have the right model config
 
 ## Bibliography
