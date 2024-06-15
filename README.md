@@ -90,6 +90,22 @@ You can generate datasets with the following command
 python generate.py
 ```
 #### Generate images with Dreambooth LoRA
+
+Generating images with the Dreambooth LoRA model can only be done with one cheese at a time.
+The config used should be, in the configs/generate/config.yaml file:
+
+  - image_generator: dreambooth_lora
+  - dataset_generator: llama3_prompts
+
+For each cheese:
+  - the lora_model_id in generators/dreambooth_lora.py should be modified to use the adequate LoRA model for the cheese
+  - in generate.py, the list of labels should be replaced by ['CHEESE NAME']
+
+You can then generate a training dataset for this specific cheese with the following command:
+
+```
+python generate.py
+```
 #### Generate images with IP-Adapter
 
 ### VRAM issues
